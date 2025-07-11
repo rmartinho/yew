@@ -18,6 +18,9 @@ where
     /// CSS classes to add to the anchor element (optional).
     #[prop_or_default]
     pub classes: Classes,
+    /// ARIA role to add to the anchor element (optional).
+    #[prop_or_default]
+    pub role: Option<AttrValue>,
     /// Route that will be pushed when the anchor is clicked.
     pub to: R,
     /// Route query data
@@ -45,6 +48,7 @@ where
 {
     let LinkProps {
         classes,
+        role,
         to,
         query,
         state,
@@ -104,6 +108,7 @@ where
 
     html! {
         <a class={classes}
+            role={role}
             {href}
             {onclick}
             {disabled}
